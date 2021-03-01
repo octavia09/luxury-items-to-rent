@@ -1,18 +1,20 @@
 <p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-10">
+      <h1><%= @item.name %></h1>
+      <h5>
+        (<%= @item.category.capitalize %>)
+      </h5>
 
-<p>
-  <strong>Name:</strong>
-  <%= @item.name %>
-  <%= @item.category %>
-  <%= @item.size %>
-  <%= @item.size %>
-
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @item.user_id %>
-</p>
-
-<%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back to List', items_path %>
+      <h5>
+        <%= @item.description %> <br>
+        Size: <%= @item.size %> <br>
+        $ <%= @item.price %>
+        <%= @item.user_id %>
+      </h5>
+      <%= link_to 'Edit', edit_item_path(@item) %> |
+      <%= link_to 'Back to List', items_path %>
+    </div>
+  </div>
+</div>

@@ -1,9 +1,12 @@
 class ItemsController < ApplicationController
 before_action :set_item, only: [:show, :edit, :update, :destroy]
 
-
   def index
-    @items = Item.all
+    if params[:search].present?
+      @items = Item.where(category: params[:search][:query])
+    else
+      @items = Item.all
+    end
   end
 
   def show
