@@ -1,0 +1,18 @@
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-10">
+      <h1><%= @item.name %></h1>
+      <h5>
+        (<%= @item.category.capitalize %>)
+      </h5>
+
+      <h5>
+        <%= @item.description %> <br>
+        Size: <%= @item.size %> <br>
+        $ <%= @item.price %>
+
+      </h5>
+    </div>
+  </div>
+</div>
