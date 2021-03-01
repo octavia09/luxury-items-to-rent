@@ -5,5 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   validates_presence_of :first_name, :last_name, :phone_number
   has_many :items
+  has_many :items, through: :bookings
+  has_many :bookings
 
 end
