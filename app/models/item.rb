@@ -5,4 +5,6 @@ class Item < ApplicationRecord
   validates_presence_of :name, :description, :size, :price, :category
   CATEGORIES = ["bag", "dress", "shoe"]
   validates :category, inclusion: { in: CATEGORIES }
+  has_many_attached :images
+
 end
