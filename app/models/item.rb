@@ -3,6 +3,6 @@ class Item < ApplicationRecord
   has_many :bookings
   has_many :users, through: :bookings
   validates_presence_of :name, :description, :size, :price, :category
-  CATEGORIES = ["bags", "dresses", "shoes"]
+  CATEGORIES = ["bag", "dress", "shoe"]
   validates :category, inclusion: { in: CATEGORIES }
 end

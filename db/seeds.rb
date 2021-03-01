@@ -14,9 +14,9 @@ Item.destroy_all
 
   p Item.create(
       name: Faker::Coffee.blend_name,
-      description: Faker::Coffee.origin,
+      description: Faker::Restaurant.description,
       size: ["XXS", "XS", "S", "M", "L", "XL", "XXL", "XXXL", "XXXXL"].sample,
-      price: rand(10..10000),
+      price: rand(10..1000),
       category: Item::CATEGORIES.sample,
       user: User.first
     )
