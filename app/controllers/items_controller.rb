@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
 before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
-    if params[:search].present? && params[:search][:query].empty?
+    if params[:search].present? && params[:search][:query].present?
       @items = Item.where(category: params[:search][:query])
     else
       @items = Item.all
