@@ -2,19 +2,30 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-10">
-      <h1><%= @item.name %></h1>
-      <h5>
-        (<%= @item.category.capitalize %>)
-      </h5>
+      <div class="card shadow-sm p-3 mb-5 bg-body rounded">
+        <div class="d-flex justify-content-between">
+          <h2><%= @item.name %></h2>
+          <h5>
+            (<%= @item.category.capitalize %>)
+          </h5>
+        </div>
+          ~<%= @item.user.first_name %>
 
-      <h5>
-        <%= @item.description %> <br>
-        Size: <%= @item.size %> <br>
-        $ <%= @item.price %>
-        <%= @item.user_id %>
-      </h5>
-      <%= link_to 'Edit', edit_item_path(@item) %> |
-      <%= link_to 'Back to List', items_path %>
+        <div>
+          <p><%= @item.description %></p>
+        </div>
+
+        <p>
+          Size: <%= @item.size %> <br>
+        </p>
+
+        <div class="d-flex justify-content-between align-items-center">
+          $ <%= @item.price %>
+          <%= link_to 'Edit', edit_item_path(@item), class: "btn btn-warning" %>
+        </div>
+
+      </div>
+      <%= link_to 'Back to List', items_path, class: "btn btn-outline-primary mb-5" %>
     </div>
   </div>
 </div>
