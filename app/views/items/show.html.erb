@@ -3,7 +3,10 @@
   <div class="row justify-content-center">
     <div class="col-10">
       <div class="card shadow-sm p-3 mb-5 bg-body rounded">
-        <div class="d-flex justify-content-between">
+        <% @item.photos.each do |photo| %>
+        <%= cl_image_tag photo.key, height: 300, width: 885, crop: :fill %>
+        <% end %>
+        <div class="d-flex justify-content-between mt-4">
           <h2><%= @item.name %></h2>
           <h5>
             (<%= @item.category.capitalize %>)
@@ -29,10 +32,7 @@
       <%= link_to 'Back to List', items_path, class: "btn btn-outline-primary mb-5" %>
 
 
-        <% @item.photos.each do |photo| %>
-        <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-        <% end %>
-     
+
 
     </div>
   </div>
