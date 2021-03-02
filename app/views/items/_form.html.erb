@@ -8,6 +8,7 @@
     <%= f.input :description %>
     <%= f.input :size, collection: Item::SIZES %>
     <%= f.input :price %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     <%= f.input :category, collection: Item::CATEGORIES %>
 
 

@@ -11,6 +11,7 @@
         </div>
           ~<%= @item.user.first_name %>
 
+
         <div>
           <p><%= @item.description %></p>
         </div>
@@ -26,6 +27,13 @@
 
       </div>
       <%= link_to 'Back to List', items_path, class: "btn btn-outline-primary mb-5" %>
+
+
+        <% @item.photos.each do |photo| %>
+        <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+        <% end %>
+     
+
     </div>
   </div>
 </div>
