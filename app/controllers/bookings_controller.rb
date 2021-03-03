@@ -5,7 +5,6 @@ class BookingsController < ApplicationController
   def new
     @booking = Booking.new
     @item = Item.find(params[:item_id])
-
   end
 
 
@@ -16,7 +15,6 @@ class BookingsController < ApplicationController
     @item = Item.find(params[:item_id])
     @booking.item = @item
     @booking.user = current_user
-    @booking.price = @item.price
 
 
     if @booking.save
@@ -36,4 +34,7 @@ class BookingsController < ApplicationController
   def booking_params
     params.require(:booking).permit(:start_date, :end_date, :price, :item_id)
   end
+
+
 end
+
