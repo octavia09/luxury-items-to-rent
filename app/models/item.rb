@@ -7,4 +7,17 @@ class Item < ApplicationRecord
   CATEGORIES = ["bag", "dress", "shoe"]
   validates :category, inclusion: { in: CATEGORIES }
   has_many_attached :photos
+
+  include PgSearch::Model
+  pg_search_scope :global_search,
+    against: [ :name, :category, :description ],
+    using: {
+      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+    }
 end
+
+
+
+
+
+
