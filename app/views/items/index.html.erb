@@ -30,7 +30,7 @@
               <div class="item-images">
                   <% item.photos.each do |photo| %>
                     <div>
-                      <%= cl_image_tag(photo.key, width: 285, height: 285, crop: :fill, class: 'd-block w-100') %>
+                      <%= cl_image_tag(photo.key, width: 285, height: 285, crop: :fill) %>
                     </div>
                   <% end %>
               </div>
@@ -48,6 +48,6 @@
       <% end %>
     </div>
   <% else %>
-    <h3>Sorry, we don't have this category</h3>
+    <h3>Sorry, please try again!</h3>
   <% end %>
 </div>
