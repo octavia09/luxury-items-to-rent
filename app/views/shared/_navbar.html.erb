@@ -1,37 +1,37 @@
-<div class="My box"></div>
-
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <a class="navbar-brand" href="#">
-    <img src="https://images.unsplash.com/photo-1549439602-43ebca2327af?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80" />
-  </a>
+  <%= link_to "#", class: "navbar-brand" do %>
+    <%= image_tag "https://images.unsplash.com/photo-1549439602-43ebca2327af?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80" %>
+    <% end %>
+
+
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-<form class="example" action="/action_page.php" style="margin:auto;max-width:300px">
-  <input type="text" placeholder="Search.." name="search2">
-  <button type="submit"><i class="fa fa-search"></i></button>
-</form>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Become a host</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Our best selections</a>
-      </li>
-      <li class="nav-item dropdown">
-        <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" />
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Sign up</a>
-          <a class="dropdown-item" href="#">Log in</a>
-          <a class="dropdown-item" href="#">Host your items</a>
-          <a class="dropdown-item" href="#">Look for items</a>
-          <a class="dropdown-item" href="#">Help</a>
-
-        </div>
-      </li>
+      <% if user_signed_in? %>
+        <li class="nav-item active">
+          <%= link_to "Home", "#", class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Messages", "#", class: "nav-link" %>
+        </li>
+        <li class="nav-item dropdown">
+          <%= image_tag "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <%= link_to "Action", "#", class: "dropdown-item" %>
+            <%= link_to "Another action", "#", class: "dropdown-item" %>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          </div>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+        </li>
+      <% end %>
+      
     </ul>
   </div>
 </div>

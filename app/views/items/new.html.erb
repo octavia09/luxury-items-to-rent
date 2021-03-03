@@ -1,0 +1,23 @@
+
+<div class="container py-5">
+  <div class="row">
+    <div class="col-12 col-md-6 offset-lg-3">
+      <div class="bg-white rounded p-3 shadow">
+        <h3>Create a new item</h3>
+
+<%= render 'form', item: @item %>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container py-2">
+  <div class="row">
+    <div class="col-12 col-md-6 offset-lg-3">
+      <div class="bg-white rounded p-3 shadow">
+        <%= link_to 'Back to List', items_path %>
+      </div>
+    </div>
+  </div>
+</div>

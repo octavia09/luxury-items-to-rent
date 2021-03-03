@@ -1,2 +1,53 @@
-<h1>Hello, want to look stunning on your next event?</h1>
-<p>You are in the right place</p>
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.1)), url(https://images.unsplash.com/photo-1483985988355-763728e1935b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80);">
+  <div class="container">
+    <h1>Welcome to<em><strong> My Luxury Closet</strong></em></h1>
+    <p>The number one stops to rent any fancy dresses, bags, shoes and more to look stunning at your next special event 👗 👜 👠</p>
+    <%= link_to "Rent Now", items_path, class: "btn btn-items" %>
+  </div>
+</div>
+
+<div class="container mt-5">
+
+  <h2 class="text-muted text-center mb-5">
+    Welcome to the best luxury online shopping experience
+  </h2>
+
+  <div class="row justify-content-between">
+
+    <div class="col-12 col-sm-4">
+      <%= link_to items_path, class: "rounded" do %>
+        <div class="card">
+          <div class="card-top" style="background-image: url(https://mk0suitelifejcbmjj6c.kinstacdn.com/wp-content/uploads/2019/11/shopping.jpg);"></div>
+          <div class="card-body">
+            <h5 class="text-dark text-center">Shoes</h5>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="col-12 col-sm-4">
+      <%= link_to items_path, class: "rounded" do %>
+        <div class="card">
+          <div class="card-top" style="background-image: url(https://images.unsplash.com/photo-1596149615493-f0739de31c2d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1189&q=80);"></div>
+          <div class="card-body">
+            <h5 class="text-dark text-center">Bags</h5>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="col-12 col-sm-4">
+      <%= link_to items_path, class: "rounded" do %>
+        <div class="card">
+          <div class="card-top" style="background-image: url(https://graziamagazine.com/wp-content/uploads/2021/01/00019-Chanel-Couture-Spring-21.jpg?resize=1024%2C1536);"></div>
+          <div class="card-body">
+            <h5 class="text-dark text-center">Dresses</h5>
+          </div>
+        </div>
+      <% end %>
+    </div>
+<br><br><br>
+  </div>
+</div>
+
