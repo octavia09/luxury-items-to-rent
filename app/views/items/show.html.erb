@@ -1,11 +1,17 @@
 <p id="notice"><%= notice %></p>
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-10">
+    <div class="col-8">
       <div class="card shadow-sm p-3 mb-5 bg-body rounded">
-        <% @item.photos.each do |photo| %>
-        <%= cl_image_tag photo.key, height: 300, width: 885, crop: :fill %>
-        <% end %>
+        <% if @item.photos.attached? %>
+            <div class="item-images">
+                  <% @item.photos.each do |photo| %>
+                    <div>
+                      <%= cl_image_tag(photo.key, width: 800, height: 285, crop: :fill ) %>
+                    </div>
+                  <% end %>
+              </div>
+            <% end %>
         <div class="d-flex justify-content-between mt-4">
           <h2><%= @item.name %></h2>
           <h5>
@@ -24,8 +30,11 @@
         </p>
 
         <div class="d-flex justify-content-between align-items-center">
-          $ <%= @item.price %>
-          <%= link_to 'Edit', edit_item_path(@item), class: "btn btn-warning" %>
+          $ <%= @item.price %> / day
+          <div class="d-flex justify-content-end align-items-center">
+            <%= link_to 'Edit', edit_item_path(@item), class: "btn btn-warning mr-3" %>
+            <%= link_to 'Delete', item_path(@item), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+          </div>
         </div>
 
       </div>

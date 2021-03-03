@@ -20,11 +20,18 @@ ActiveStorage.start()
 
 // External imports
 import "bootstrap";
-
+import 'slick-carousel'
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  console.log('javascript')
+  console.log($('.item-images'));
+  $('.item-images').slick({
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1
+  });
 });
