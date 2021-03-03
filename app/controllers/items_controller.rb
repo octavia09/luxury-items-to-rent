@@ -17,13 +17,14 @@ before_action :set_item, only: [:show, :edit, :update, :destroy]
   end
 
   def edit
-
+    unless @item.user == current_user
+      redirect_to @item
+    end
   end
 
   def create
     @item = Item.new(item_params)
     @item.user = current_user
-
     if @item.save
       redirect_to @item, notice: "Item was succesfully saved"
     else
@@ -40,8 +41,11 @@ before_action :set_item, only: [:show, :edit, :update, :destroy]
   end
 
   def destroy
-    @item.delete
-    redirect_to items_path, notice: "Item was succesfully deleted"
+    if @item.user == current_user
+      @item.delete
+    else
+      redirect_to items_path, notice: "Item was succesfully deleted"
+    end
   end
 
 private
