@@ -3,7 +3,7 @@ before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
     if params[:search].present? && params[:search][:query].present?
-      @items = Item.where(category: params[:search][:query])
+      @items = Item.global_search(params[:search][:query])
     else
       @items = Item.all
     end
@@ -57,5 +57,7 @@ private
   def item_params
     params.require(:item).permit(:name, :description, :size, :price, :category, photos: [])
   end
+
+
 end
 

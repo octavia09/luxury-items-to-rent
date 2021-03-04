@@ -27,8 +27,7 @@ import 'slick-carousel'
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
-  console.log('javascript')
-  console.log($('.item-images'));
+
   $('.item-images').slick({
     infinite: true,
     slidesToShow: 1,
