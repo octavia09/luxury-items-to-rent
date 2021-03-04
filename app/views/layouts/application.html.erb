@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>LuxuryItemsToRent</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>LuxuryItemsToRent</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -17,11 +18,10 @@
 
   <body>
     <%= render 'shared/navbar' %>
+    <%#= render 'shared/flashes' %>
+  <%= yield %>
+  <%= render 'shared/footer' %>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 
-    <%= render 'shared/flashes' %>
-
-    <%= yield %>
-    <%= render 'shared/footer' %>
-
-  </body>
+</body>
 </html>
