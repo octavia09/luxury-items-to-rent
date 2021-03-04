@@ -31,7 +31,7 @@ class Booking < ApplicationRecord
   end
 
   def validate_other_booking_overlap
-    other_bookings = Booking.all
+    other_bookings = Booking.where(item: self.item)
     is_overlapping = other_bookings.any? do |other_booking|
       period.overlaps?(other_booking.period)
     end
