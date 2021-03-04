@@ -5,7 +5,9 @@ require "faker"
 require "uri"
 
 puts "Destroying the items in db"
+Booking.destroy_all
 Item.destroy_all
+
 
 
 puts "Creating items..."
