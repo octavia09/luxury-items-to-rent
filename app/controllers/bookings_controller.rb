@@ -1,14 +1,6 @@
 class BookingsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_booking, only: [:edit, :update, :destroy]
-
-  def new
-    @booking = Booking.new
-    @item = Item.find(params[:item_id])
-  end
-
-
-
+  before_action :set_booking, only: [:destroy]
 
   def create
     @booking = Booking.new(booking_params)
@@ -16,13 +8,17 @@ class BookingsController < ApplicationController
     @booking.item = @item
     @booking.user = current_user
 
-
     if @booking.save
-      redirect_to @item, notice: "Your booking has been created..."
-
+      redirect_to my_bookings_path, notice: "Your booking has been created..."
     else
-      render :new
+      render 'items/show'
     end
+  end
+
+  def destroy
+    @booking.delete
+
+    redirect_to my_bookings_path
   end
 
   private
@@ -34,7 +30,4 @@ class BookingsController < ApplicationController
   def booking_params
     params.require(:booking).permit(:start_date, :end_date, :price, :item_id)
   end
-
-
 end
-

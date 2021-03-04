@@ -9,7 +9,7 @@ class Booking < ApplicationRecord
   before_validation :set_total_price, on: :create
 
   def set_total_price
-    self.price = self.item.price.to_i * (self.end_date - self.start_date).to_i
+    self.price = (self.item.price.to_i * (self.end_date - self.start_date).to_i) + self.item.price.to_i
   end
 
   def date_validity

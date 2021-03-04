@@ -2,13 +2,13 @@
   <h1>My Offers</h1>
   <div class="row">
     <% @items.each do |item| %>
-      <div class="col-12 col-md-6 col-lg-6">
-        <div class="card shadow-sm p-3 mb-5 bg-body rounded">
+      <div class="col-12 col-md-6 col-lg-6 mb-5 mt-2">
+        <div class="card shadow-sm p-3 bg-body rounded h-100">
           <% if item.photos.attached? %>
             <div class="item-images">
               <% item.photos.each do |photo| %>
-                <div>
-                  <%= cl_image_tag(photo.key, width: 800, height: 285, crop: :fill ) %>
+                <div class="d-flex justify-content-center">
+                  <%= cl_image_tag(photo.key, size: "340x320", width: 800, height: 285, crop: :fill ) %>
                 </div>
               <% end %>
             </div>
@@ -33,10 +33,6 @@
               <%= link_to 'Edit', edit_item_path(item), class: "btn btn-warning mr-3" %>
               <%= link_to 'Delete', item_path(item), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
             </div>
-          </div>
-
-          <div>
-            <%= link_to 'Book', new_item_booking_path(item), class: "btn btn-success" %>
           </div>
         </div>
       </div>

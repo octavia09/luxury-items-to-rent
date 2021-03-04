@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <% @bookings.each do |booking| %>
+      <div class="col-12 col-md-6 col-lg-6 mb-5 mt-3">
+        <div class="card shadow-sm p-3 bg-body rounded h-100">
+          <% if booking.item.photos.attached? %>
+            <div class="item-images">
+              <% booking.item.photos.each do |photo| %>
+                <div class="d-flex justify-content-center">
+                  <%= cl_image_tag(photo.key, size: "340x320", width: 800, height: 285, crop: :fill ) %>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+          <div class="mt-4">
+            <h2><%= booking.item.name %></h2>
+          </div>
+            ~<%= booking.item.user.first_name %>
+
+          <div>
+            <p><%= booking.item.description %>  (<%= booking.item.category.capitalize %>)</p>
+          </div>
+
+          <p>
+            Size: <%= booking.item.size %> <br>
+          </p>
+
+          <div class="d-flex justify-content-between align-items-center">
+
+            $ <%= booking.item.price %> /day
+
+          </div>
+
+          <div class="mt-3">
+            <h4>Booking: <%= booking.start_date %> -- <%= booking.end_date %></h4> <br>
+            <h4 class="d-flex justify-content-end mr-3">Total price: $ <%= booking.price %></h4>
+          </div>
+
+            <div class="d-flex justify-content-end align-items-center m-2">
+              <%= link_to 'Cancel booking', booking_path(booking), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-secondary" %>
+            </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <%= link_to 'To List', items_path, class: "btn btn-outline-primary mb-5" %>
+</div>
