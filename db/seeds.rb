@@ -18,7 +18,7 @@ ITEMS = [
     size: "M",
     price: "54",
     category: "bag",
-    user: User.all.sample,
+    user: User.first,
     photo_url: "https://www.levelshoes.com/media/catalog/product/cache/189fe8db56a91dc68672618a725a226d/4/0/4002492kqfn4483_1.jpg"
   },
   {
@@ -27,7 +27,7 @@ ITEMS = [
     size: "S",
     price: "20",
     category: "bag",
-    user: User.all.sample,
+    user: User.first,
     photo_url: "https://media.loropiana.com/HYBRIS/FAL/FAL1946/05D7B03E-8F1A-4834-8641-2B02A33AAEC7/FAL1946_MH54_MEDIUM.jpg"
   },
   {
@@ -36,7 +36,7 @@ ITEMS = [
     size: "L",
     price: "90",
     category: "bag",
-    user: User.all.sample,
+    user: User.first,
     photo_url: "https://media.loropiana.com/HYBRIS/FAL/FAL3384/BF8757B8-2B44-4F21-B6DB-C5C4D4612E08/FAL3384_302A_ZOOM.jpg"
   },
   {
@@ -45,7 +45,7 @@ ITEMS = [
     size: "L",
     price: "20",
     category: "dress",
-    user: User.all.sample,
+    user: User.first,
     photo_url: "https://cms.brnstc.de/product_images/435x596/19/04/100087565718500_0.jpg"
   },
   {
@@ -54,7 +54,7 @@ ITEMS = [
     size: "XS",
     price: "76",
     category: "dress",
-    user: User.all.sample,
+    user: User.first,
     photo_url: "https://images.unsplash.com/photo-1549565995-20b55ba61132?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1355&q=80"
   },
   {
@@ -63,7 +63,7 @@ ITEMS = [
     size: "XL",
     price: "70",
     category: "dress",
-    user: User.all.sample,
+    user: User.first,
     photo_url: "https://i.imgur.com/wRnEMTM.jpg"
   },
   {
@@ -72,7 +72,7 @@ ITEMS = [
     size: "XS",
     price: "130",
     category: "dress",
-    user: User.all.sample,
+    user: User.first,
     photo_url: "https://img.veaul.com/product/070de90c4ea075c7a8d17a80bbc0ce86/elegante-lavendel-ballkleider-2018-a-linie-spitze-blumen-perle-stoffgurtel-off-shoulder-kurze-armel-ruckenfreies-lange-festliche-kleider-560x560.jpg"
   },
   {
@@ -81,7 +81,7 @@ ITEMS = [
     size: "L",
     price: "87",
     category: "shoe",
-    user: User.all.sample,
+    user: User.first,
     photo_url: "https://d3312htug2rvv.cloudfront.net/img/600/744/resize/productImages/176fe1dea905976907f90e7f272a167d.jpeg"
   },
   {
@@ -90,7 +90,7 @@ ITEMS = [
     size: "XXL",
     price: "35",
     category: "shoe",
-    user: User.all.sample,
+    user: User.first,
     photo_url: "https://d3312htug2rvv.cloudfront.net/img/600/744/resize/productImages/a1465c15335d359a098e25e458b20749.jpeg" }
 ]
 
