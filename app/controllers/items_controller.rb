@@ -10,6 +10,7 @@ before_action :set_item, only: [:show, :edit, :update, :destroy]
   end
 
   def show
+    @booking = Booking.new
   end
 
   def new
@@ -57,7 +58,4 @@ private
   def item_params
     params.require(:item).permit(:name, :description, :size, :price, :category, photos: [])
   end
-
-
 end
-

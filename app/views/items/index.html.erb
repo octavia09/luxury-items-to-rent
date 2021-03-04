@@ -29,7 +29,7 @@
             <% if item.photos.attached? %>
               <div class="item-images">
                   <% item.photos.each do |photo| %>
-                    <div>
+                    <div class="d-flex justify-content-center">
                       <%= cl_image_tag(photo.key, width: 285, height: 285, crop: :fill) %>
                     </div>
                   <% end %>
