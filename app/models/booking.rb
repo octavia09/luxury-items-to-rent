@@ -14,15 +14,15 @@ class Booking < ApplicationRecord
 
   def date_validity
     if start_date < Date.today
-      errors.add(:start_date, "can not be before today")
+      errors.add(:start_date, "cannot be before today")
     end
 
     if end_date < Date.today
-      errors.add(:end_date, "can not be before today")
+      errors.add(:end_date, "cannot be before today")
     end
 
     if end_date < start_date
-      errors.add(:end_date, "end date can not be before star date")
+      errors.add(:end_date, "end date cannot be before start date")
     end
   end
 
@@ -37,5 +37,4 @@ class Booking < ApplicationRecord
     end
     errors.add(:overlaps_with_other, "Not available on these dates") if is_overlapping
   end
-
 end

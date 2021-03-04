@@ -35,8 +35,8 @@
 
           <% if @item.user == current_user %>
             <div class="d-flex justify-content-end align-items-center">
-              <%= link_to 'Edit', edit_item_path(@item), class: "btn btn-warning mr-3" %>
-              <%= link_to 'Delete', item_path(@item), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+              <%= link_to 'Edit', edit_item_path(@item), class: "btn btn-primary mr-3" %>
+              <%= link_to 'Delete', item_path(@item), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
             </div>
           <% end %>
         </div>
