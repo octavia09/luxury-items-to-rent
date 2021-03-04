@@ -1,30 +1,24 @@
 class BookingsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_booking, only: [:edit, :update, :destroy]
-
-  def new
-    @booking = Booking.new
-    @item = Item.find(params[:item_id])
-
-  end
-
-
-
+  before_action :set_booking, only: [:destroy]
 
   def create
     @booking = Booking.new(booking_params)
     @item = Item.find(params[:item_id])
     @booking.item = @item
     @booking.user = current_user
-    @booking.price = @item.price
-
 
     if @booking.save
-      redirect_to @item, notice: "Your booking has been created..."
-
+      redirect_to my_bookings_path, notice: "Your booking has been created..."
     else
-      render :new
+      render 'items/show'
     end
+  end
+
+  def destroy
+    @booking.delete
+
+    redirect_to my_bookings_path
   end
 
   private

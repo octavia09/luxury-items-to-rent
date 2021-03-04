@@ -1,25 +1,26 @@
-<p id="notice"><%= notice %></p>
-<div class="container">
-  <div class="row justify-content-center">
+<div class="container pt-5 position-relative">
+  <div class="row d-flex justify-content-between position-relative">
+
     <div class="col-8">
+
       <div class="card shadow-sm p-3 mb-5 bg-body rounded">
+
         <% if @item.photos.attached? %>
-            <div class="item-images">
-                  <% @item.photos.each do |photo| %>
-                    <div>
-                      <%= cl_image_tag(photo.key, width: 800, height: 285, crop: :fill ) %>
-                    </div>
-                  <% end %>
+          <div class="item-images">
+            <% @item.photos.each do |photo| %>
+              <div class="d-flex justify-content-center">
+                <%= cl_image_tag(photo.key, size: "340x320", width: 800, height: 285, crop: :fill ) %>
               </div>
             <% end %>
+          </div>
+        <% end %>
+
         <div class="d-flex justify-content-between mt-4">
           <h2><%= @item.name %></h2>
           <h5>
             (<%= @item.category.capitalize %>)
           </h5>
         </div>
-          ~<%= @item.user.first_name %>
-
 
         <div>
           <p><%= @item.description %></p>
@@ -30,36 +31,44 @@
         </p>
 
         <div class="d-flex justify-content-between align-items-center">
-
           $ <%= @item.price %> /day
-        
-
 
           <% if @item.user == current_user %>
-
-        
-         
-
-         
-          <div class="d-flex justify-content-end align-items-center">
-            <%= link_to 'Edit', edit_item_path(@item), class: "btn btn-warning mr-3" %>
-            <%= link_to 'Delete', item_path(@item), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
-          </div>
-        <% end %>
-
-        </div>
-        
-        <div>
-
-          <%= link_to 'Book', new_item_booking_path(@item), class: "btn btn-success" %>
+            <div class="d-flex justify-content-end align-items-center">
+              <%= link_to 'Edit', edit_item_path(@item), class: "btn btn-warning mr-3" %>
+              <%= link_to 'Delete', item_path(@item), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+            </div>
+          <% end %>
         </div>
 
       </div>
-      <%= link_to 'Back to List', items_path, class: "btn btn-outline-primary mb-5" %>
-
-
-
-
     </div>
+
+    <div id="booking" class="col-3">
+      <div class="card shadow-sm p-3 mb-5 bg-body rounded">
+
+        <%= simple_form_for([@item, @booking]) do |f| %>
+        <%= f.error_notification %>
+        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+        <h2>Booking:</h2>
+
+        <div class="form-inputs">
+          <%= f.input :start_date %>
+          <%= f.input :end_date %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, class: 'btn btn-primary' %>
+        </div>
+        <% end %>
+        <h6 style='color: red'><%= @booking.errors.full_messages.first if @booking.errors.any? %></h6>
+      </div>
+    </div>
+
   </div>
+
+
+
+      <%= link_to 'Back to List', items_path, class: "btn btn-outline-primary mb-5" %>
 </div>

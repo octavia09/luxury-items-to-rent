@@ -24,13 +24,13 @@
   <% unless @items.empty? %>
     <div class="row">
       <% @items.each do |item| %>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="card m-3 shadow-sm p-3 bg-body rounded">
+        <div class="col-12 col-md-6 col-lg-4 my-3">
+          <div class="card shadow-sm p-3 bg-body rounded h-100">
             <% if item.photos.attached? %>
               <div class="item-images">
                   <% item.photos.each do |photo| %>
-                    <div>
-                      <%= cl_image_tag(photo.key, width: 285, height: 285, crop: :fill, class: 'd-block w-100') %>
+                    <div class="d-flex justify-content-center">
+                      <%= cl_image_tag(photo.key, width: 285, height: 285, crop: :fill) %>
                     </div>
                   <% end %>
               </div>
@@ -48,6 +48,6 @@
       <% end %>
     </div>
   <% else %>
-    <h3>Sorry, we don't have this category</h3>
+    <h3>Sorry, please try again!</h3>
   <% end %>
 </div>
