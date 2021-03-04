@@ -28,7 +28,7 @@ ITEMS = [
     price: "20",
     category: "bag",
     user: User.all.sample,
-    photo_url: "https://media.loropiana.com/HYBRIS/FAI/FAI8753/DFD9780E-401E-48BD-8BA2-C7F55B64EC8A/FAI8753_603X_ZOOM.jpg"
+    photo_url: "https://media.loropiana.com/HYBRIS/FAL/FAL1946/05D7B03E-8F1A-4834-8641-2B02A33AAEC7/FAL1946_MH54_MEDIUM.jpg"
   },
   {
     name: "Hobo Bag",

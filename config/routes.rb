@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :items do
     resources :bookings, only: [:new, :create, :edit]
   end
+  get "/my_offers", to: 'dashboard#my_offers'
 
 
 
